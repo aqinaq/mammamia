@@ -72,6 +72,15 @@ npm run test:browser
 
 `npm run preview -- --port 4173` — production жинақты жергілікті қарау. Статикалық хостингке `dist/` бумасын жүктеңіз. `/offers/*` тікелей URL-дері үшін хостингте SPA fallback (`/* → /index.html`, HTTP 200) қосылуы қажет. Netlify/Cloudflare Pages үшін `public/_redirects` дайын.
 
+Vercel үшін түбірдегі `vercel.json` Vite жинағын (`npm run build`, `dist/`) және `/offers/:path* → /index.html` rewrite ережесін баптайды. React `BrowserRouter` ішкі бетті URL өзгермей ашады. Ереже тек `/offers/*` жолдарына қатысты: `/assets/*`, `/images/*`, `/fonts/*` және favicon әдеттегідей файл ретінде беріледі. Өзгеріс келесі Vercel deployment кезінде күшіне енеді.
+
+Барлық қызмет беттерін басты беттен, жаңа қойындыда тікелей ашып және жаңартып тексеру (суреттер мен қаріптер де тексеріледі):
+
+```sh
+ROUTING_BASE_URL=http://127.0.0.1:4173 npx playwright test tests/browser/routing.spec.ts
+ROUTING_BASE_URL=https://YOUR-DEPLOYMENT.vercel.app npx playwright test tests/browser/routing.spec.ts
+```
+
 Тест скриншоттары `artifacts/` ішінде. Екі тіл, сүзгілер, deep link + reload, галерея + Escape/focus, FAQ, мобильді мәзір, баға, бос емес уақыт, өткен күн, дайын сұраныс, clipboard, телефон валидациясы, автоматты қабылдау, reload-тан кейін сақтау, өшіру және сақтау қатесі тексеріледі.
 
 ## Суреттер
