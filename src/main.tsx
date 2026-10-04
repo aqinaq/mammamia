@@ -1,0 +1,11 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import './fonts.css';
+import './styles.css';
+import './aegean-theme.css';
+import './controls.css';
+import './refinements.css';
+import './scroll-experience.css';
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter><App /></BrowserRouter></React.StrictMode>);

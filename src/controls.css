@@ -1,0 +1,97 @@
+/* Ticket-style actions: warm paper, fine blue rules and a perforated stub. */
+.button {
+  position: relative;
+  border: 1px solid #487fa8;
+  border-radius: 9px;
+  background: #fff0b4;
+  color: #123f6a;
+  padding: 14px 22px;
+  min-height: 54px;
+  gap: 22px;
+  box-shadow: none;
+  font-weight: 600;
+  letter-spacing: .15px;
+  isolation: isolate;
+}
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid #487fa855;
+  border-radius: 5px;
+  pointer-events: none;
+}
+.button:hover { background: #f8df78; border-color: #123f6a; box-shadow: none; }
+.button:active { background: #f0d569; box-shadow: none; transform: translateY(1px); }
+.button .arrow, .header-book .arrow, .contact-button .arrow {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 25px;
+  padding-left: 13px;
+  border-left: 1px dashed #487fa888;
+  border-radius: 0;
+  background: none;
+  font-size: 21px;
+  flex-shrink: 0;
+}
+.header-book { min-height: 44px; padding: 10px 17px; background: #fffdf5; gap: 13px; }
+.header-book:hover { background: #fff0b4; }
+.header-book .arrow { height: 21px; width: 26px; padding-left: 10px; font-size: 18px; }
+.button-outline { background: transparent; color: #123f6a; border-color: #8eb2cc; }
+.button-outline::before { display: none; }
+.button-outline:hover { background: #edf5fa; }
+.button:disabled { background: #f0f3f5; color: #687f90; border-color: #c4d3de; opacity: .65; transform: none; }
+.button:disabled:hover { background: #f0f3f5; box-shadow: none; }
+.contact-button, .contact-button:hover { border-color: #fff0b4; box-shadow: none; }
+.button-spinner { border-color: #487fa855; border-top-color: #123f6a; }
+
+/* Service categories read like an editorial index. */
+.filters { padding: 0; border-radius: 0; border-bottom: 1px solid #c8dce9; background: none; gap: 19px; }
+.filters button {
+  position: relative;
+  padding: 12px 1px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #526e81;
+  font-size: 11px;
+}
+.filters button[aria-pressed=true] { color: #123f6a; background: none; font-weight: 700; }
+.filters button[aria-pressed=true]::after {
+  content: ''; position: absolute; bottom: -1px; left: 0; right: 0;
+  height: 3px; border-radius: 2px; background: #1264a3;
+}
+.filters button:hover { color: #1264a3; }
+
+/* Dates and times use compact paper tiles, with clear selected states. */
+.date-choices>button, .time-choices>button {
+  border-radius: 7px;
+  border: 1px solid #c2d6e5;
+  background: #fff;
+  color: #173c60;
+}
+.date-choices>button[aria-pressed=true], .time-choices>button[aria-pressed=true] {
+  border-color: #1264a3;
+  background: #fff0b4;
+  color: #123f6a;
+  box-shadow: inset 0 -3px 0 #1264a3;
+}
+.time-choices>button { min-height: 44px; }
+.time-choices>button:disabled { background: #edf1f4; color: #728594; border-color: #e0e7ed; box-shadow: none; }
+.time-choices>button:hover:not(:disabled):not([aria-pressed=true]),
+.date-choices>button:hover:not([aria-pressed=true]) { background: #eff6fb; border-color: #1264a3; }
+
+@media(max-width:650px) {
+  .hero-intro>.button { min-height: 53px; padding: 13px 21px; }
+  .mobile-booking .button { min-height: 47px; padding: 10px 16px; gap: 17px; }
+  .mobile-booking .button .arrow { height: 22px; width: 26px; padding-left: 10px; font-size: 19px; }
+  .filters { gap: 15px; }
+  .filters button { font-size: 10px; padding: 12px 0; }
+  .prepare-button { padding: 13px 20px; }
+}
+@media(max-width:360px) {
+  .filters { gap: 12px; }
+  .filters button { font-size: 9px; }
+}

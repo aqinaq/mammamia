@@ -1,0 +1,128 @@
+/* Shared photo frames and readable type across both languages. */
+:root { --photo-radius: 20px; --photo-border: #b7d1e3; }
+.hero-image>img, .card-image-link,
+.about-gallery>.gallery-image:first-child, .about-gallery>.gallery-image:not(:first-child),
+.detail-gallery>button:first-child, .detail-gallery>button:last-child,
+.detail-gallery>.gallery-image, .hero-art-link {
+  border-radius: var(--photo-radius);
+  border: 1px solid var(--photo-border);
+}
+.about-gallery { border-radius: 28px; }
+.desktop-nav a, .language button, .header-book { font-size: 14px; }
+.desktop-nav { gap: 24px; padding-left: 0; }
+.wordmark>span { font-size: 9px; letter-spacing: 3px; }
+.hero.hero-story h1 { font-size: clamp(40px, 4.25vw, 62px); line-height: 1.14; }
+.hero.hero-story .eyebrow, .eyebrow { font-size: 12px; letter-spacing: 1.2px; }
+.hero-story .hero-intro p { font-size: 16px; max-width: 470px; }
+.hero-story .hero-intro { max-width: 490px; }
+.hero-story .hero-intro>.text-link, .hero-intro>.button, .button, .text-link { font-size: 14px; }
+.hero-art-cta small, .hero-art-phases, .hero-art-hint { font-size: 12px; }
+.creative-scene-top { font-size: 10px; letter-spacing: 1px; }
+.hero-image-caption, .hero-image-caption>span:last-child, .hero-photo-label { font-size: 12px; }
+.hero-image-caption>span:last-child { letter-spacing: .7px; }
+.ribbon>.shell>span, .filters button { font-size: 14px; }
+.filters { flex-wrap: wrap; }
+.section-intro, .card-summary, .about-copy p:not(.eyebrow),
+.booking-copy>p:not(.eyebrow), .faq-items details>p, .contact-details p,
+.detail-heading p:not(.eyebrow), .detail-content>div>p:not(.eyebrow),
+.included-list, .detail-aside ul { font-size: 16px; }
+.card-summary { min-height: 53px; }
+.card-meta, .card-footer p>span, .card-footer .text-link, .image-tag { font-size: 13px; }
+.card-footer { flex-wrap: wrap; }
+.image-tag { max-width: calc(100% - 80px); white-space: normal; text-align: center; }
+.step h4, .faq-items summary, .field-label, legend { font-size: 16px; }
+.step p, .field-note, .demo-notice p, .local-demo-note, .no-payment,
+.booking-copy>p.timezone, .receipt-note, .request-timeline p,
+.contact-details p.contact-note, .footer>p, .lightbox-controls p { font-size: 13px; }
+.demo-notice strong, .demo-pill, .contact-demo, .contact-details>div>span { font-size: 12px; }
+.booking-panel select, .date-input-row input, .time-choices>button { font-size: 16px; }
+.date-input-row label, .date-choices>button>span, .date-choices small,
+.summary-details>span, .summary-price>span, .summary-details>p,
+.receipt-id, .receipt-phone, .message-details summary, .delete-request { font-size: 12px; }
+.summary-details>strong, .request-timeline strong { font-size: 14px; }
+.detail-price { display: grid; grid-template-columns: auto auto; align-items: baseline; gap: 8px; min-width: 230px; }
+.detail-price>span { font-size: 15px; }
+.detail-book { grid-column: 1 / -1; margin-top: 12px; }
+.detail-gallery { grid-template-columns: 1.35fr 1fr 1fr; gap: 18px; }
+.detail-gallery:has(>button:nth-child(2):last-child) { grid-template-columns: 1.5fr 1fr; }
+.detail-gallery>button { height: 380px; }
+.gallery-caption { position: absolute; inset: auto 0 0; padding: 38px 52px 20px 20px; color: white; background: linear-gradient(transparent, #102838da); font-size: 14px; line-height: 1.5; }
+.gallery-expand { z-index: 1; }
+.gallery-disclosure { font-size: 12px; color: var(--muted); margin-top: 14px; }
+.handoff-result>p { margin-block: 20px 24px; }
+.contact-phone { display: block; margin-top: 15px; font-size: 20px; }
+.contact-details .text-link { color: white; margin-top: 14px; }
+@media(prefers-reduced-motion:no-preference) {
+  .page-transition { animation: page-enter .32s cubic-bezier(.2,.65,.3,1) both; }
+  @keyframes page-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+@media(max-width:1100px) {
+  .desktop-nav { gap: 16px; }
+  .header-actions { gap: 14px; }
+  .desktop-nav a { font-size: 13px; }
+  .detail-gallery>button { height: 320px; }
+}
+@media(max-width:900px) {
+  .hero.hero-story h1 { font-size: clamp(32px, 5.2vw, 46px); }
+  .hero-story .hero-intro p { font-size: 14px; max-width: 510px; }
+  .hero-story .hero-intro { max-width: 550px; }
+  .detail-gallery { grid-template-columns: 1fr 1fr; }
+  .detail-gallery>button:first-child { grid-column: 1 / -1; }
+  .detail-gallery>button { height: 245px; }
+  .detail-gallery:has(>button:nth-child(2):last-child)>button:first-child { grid-column: auto; }
+}
+@media(max-width:650px) {
+  :root { --photo-radius: 16px; }
+  .hero.hero-story h1 { font-size: clamp(28px, 7.4vw, 42px); }
+  .hero.hero-story .eyebrow { font-size: 10px; letter-spacing: .5px; }
+  .hero-story .hero-intro { row-gap: 10px; }
+  .hero-story .hero-intro p { font-size: 13px; line-height: 1.6; }
+  .hero-story .hero-intro>.button, .hero-story .hero-intro>.text-link { font-size: 12px; }
+  .hero-art-phases, .hero-art-hint, .hero-art-cta small { font-size: 11px; }
+  .creative-scene-top { font-size: 9px; }
+  .hero-image-caption { max-width: calc(100% - 95px); }
+  .section-intro, .card-summary, .about-copy p:not(.eyebrow), .booking-copy>p:not(.eyebrow), .faq-items details>p, .contact-details p { font-size: 15px; }
+  .filters { gap: 15px; }
+  .filters button { font-size: 12px; }
+  .detail-heading { gap: 24px; }
+  .detail-price { width: 100%; grid-template-columns: auto 1fr; }
+  .detail-book { width: 100%; }
+  .detail-gallery { gap: 12px; }
+  .detail-gallery>button:first-child { height: 285px; }
+  .detail-gallery>button { height: 215px; }
+  .gallery-caption { font-size: 12px; padding: 34px 12px 47px; }
+  .booking-summary { gap: 12px; flex-wrap: wrap; }
+  .date-choices { gap: 4px; }
+  .date-choices>button>span, .date-choices small { font-size: 10px; }
+  .demo-pill { font-size: 10px; }
+  .form-title { flex-wrap: wrap; }
+  .mobile-booking .button { font-size: 13px; }
+}
+.booking-grid>* { min-width: 0; }
+@media(max-width:650px) { .booking-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* The modal stays in the top layer while both it and the scrim fade out. */
+.lightbox { border-radius: 18px; transform-origin: center; }
+.lightbox>img { border-radius: 10px; }
+@media(prefers-reduced-motion:no-preference) {
+  .lightbox[open] { animation: lightbox-in .3s cubic-bezier(.2,.75,.25,1) both; }
+  .lightbox[open]::backdrop { animation: lightbox-scrim-in .3s ease-out both; }
+  .lightbox[open][data-closing] { animation: lightbox-out .2s ease-in both; }
+  .lightbox[open][data-closing]::backdrop { animation: lightbox-scrim-out .2s ease-in both; }
+  .mobile-menu { transform-origin: top center; animation: panel-in .25s cubic-bezier(.2,.75,.25,1) both; }
+  .faq-items details[open]>p, .message-details[open]>:not(summary) { animation: panel-in .24s ease-out both; }
+  @keyframes lightbox-in {
+    from { opacity: 0; transform: translateY(18px) scale(.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes lightbox-out {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(10px) scale(.98); }
+  }
+  @keyframes lightbox-scrim-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes lightbox-scrim-out { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes panel-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

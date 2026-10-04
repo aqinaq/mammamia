@@ -1,0 +1,47 @@
+/* Scroll choreography: all movement follows the native scroll position. */
+.scroll-progress { position: fixed; z-index: 60; inset: 0 0 auto; height: 3px; pointer-events: none; }
+.scroll-progress>span { display: block; height: 100%; background: linear-gradient(90deg, #246caa, #bb5076, #e9ae46); transform: scaleX(var(--page-progress, 0)); transform-origin: left; }
+.creative-progress { position: relative; height: 2px; margin: 14px 5px 0; background: #c6d8df; }
+.creative-progress>span { display: block; height: 100%; background: #aa326e; transform-origin: left; transform: scaleX(var(--progress)); }
+.creative-progress>i { position: absolute; top: -10px; left: calc(var(--progress) * (100% - 18px)); font-size: 19px; line-height: 22px; font-style: normal; color: #aa326e; transform: rotate(calc(var(--progress) * 360deg)); }
+.hero-art-phases>span { position: relative; transition: color .25s; }
+.hero-artwork[data-phase="0"] .hero-art-phases>span:first-child,
+.hero-artwork[data-phase="1"] .hero-art-phases>span:nth-child(2),
+.hero-artwork[data-phase="2"] .hero-art-phases>span:nth-child(3) { color: #aa326e; }
+.creative-ribbon { stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--ornament)); opacity: calc(.65 - var(--warmth) * .4); }
+.creative-petals { opacity: calc(.2 + var(--ornament) * .8 - var(--warmth) * .7); }
+.creative-petal { transform-box: fill-box; transform-origin: center; }
+@media(prefers-reduced-motion: no-preference) {
+  .hero-story .hero-heading h1 em { background: linear-gradient(#f4d681, #f4d681) no-repeat left 94% / calc(var(--story-progress, 0) * 100%) 7px; }
+  .hero-story .tiny-sun { display: inline-block; transform: rotate(calc(var(--story-progress, 0) * 180deg)); }
+  .hero-art-link { transform: perspective(1100px) rotateY(calc(-7deg + var(--ornament) * 7deg)) rotateZ(calc(-2deg + var(--progress) * 2deg)); transform-origin: center; }
+  .creative-vase { transform: rotate(calc(-12deg + var(--ornament) * 12deg)) scale(calc(.9 + var(--ornament) * .1)); }
+  .creative-mimi { transform: translate(calc(var(--progress) * -32px), calc(var(--progress) * -24px)) rotate(calc(var(--progress) * 50deg)); }
+  .creative-wave { transform-origin: center bottom; }
+  .creative-wave-far { transform: scaleY(calc(1 + var(--progress) * .25)); }
+  .creative-wave-near { transform: scaleY(calc(1 - var(--progress) * .2)); }
+  .creative-petal-0 { transform: translate(calc(var(--progress) * 38px), calc(var(--progress) * -75px)) rotate(calc(var(--progress) * 240deg)); }
+  .creative-petal-1 { transform: translate(calc(var(--progress) * -40px), calc(var(--progress) * 60px)) rotate(calc(var(--progress) * -190deg)); }
+  .creative-petal-2 { transform: translate(calc(var(--progress) * 24px), calc(var(--progress) * -45px)) rotate(calc(var(--progress) * 320deg)); }
+  .hero-photography .hero-image>img {
+    clip-path: inset(0 calc(max(0, .5 - var(--photo-progress, 0)) * 20%) round 20px);
+    object-position: center calc(25% + var(--photo-progress, 0) * 30%);
+  }
+  .hero-photography .hero-stamp { transform: rotate(calc(-18deg + var(--photo-progress, 0) * 42deg)); }
+  [data-reveal] { transition: opacity .8s ease, transform .9s cubic-bezier(.16, 1, .3, 1); }
+  [data-reveal]:not([data-revealed="true"]) { opacity: 0; transform: translateY(48px); }
+  .service-grid[data-reveal] { opacity: 1; transform: none; }
+  .service-grid[data-reveal]>.service-card { transition: opacity .8s ease, transform .9s cubic-bezier(.16, 1, .3, 1); }
+  .service-grid[data-reveal]:not([data-revealed="true"])>.service-card { opacity: 0; transform: translateY(65px) rotate(2deg); }
+  .service-grid[data-revealed="true"]>.service-card:nth-child(2) { transition-delay: .1s; }
+  .service-grid[data-revealed="true"]>.service-card:nth-child(3) { transition-delay: .2s; }
+  [data-reveal]:focus-within, .service-grid[data-reveal]:focus-within>.service-card { opacity: 1; transform: none; }
+}
+@media(max-width: 650px) {
+  .creative-progress { margin-top: 10px; }
+  .creative-progress>i { font-size: 15px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .creative-ribbon { stroke-dashoffset: 0; opacity: .25; }
+  .creative-petals { opacity: .3; }
+}
